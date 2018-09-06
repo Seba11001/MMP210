@@ -19,6 +19,10 @@ function draw ()  {
     fill("black");
     ellipse(200, 150, 20);
     ellipse(380, 150, 20);
+    
     fill("red")
     rect(250, 230, 70, 20, 10);
+    
+    fill("tan")
+    rect(280, 180, 10, 20);
 } 
