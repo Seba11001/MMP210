@@ -17,8 +17,8 @@ function draw ()  {
     ellipse(200, 150, 35);
     ellipse(380, 150, 35);
     fill("black");
-    ellipse(200, 150, 20);
-    ellipse(380, 150, 20);
+    ellipse(200, 150, 15);
+    ellipse(380, 150, 15);
     
     fill("red")
     rect(250, 230, 70, 20, 10);
