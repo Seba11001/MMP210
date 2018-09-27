@@ -29,6 +29,7 @@ a {
     text-align: center; 
     background-color: #58595b; 
     color:#ffffff;
+    float: left;
 }
 ul {
     list-style: none;
