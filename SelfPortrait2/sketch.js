@@ -5,7 +5,7 @@ interactive
 function setup() {
     createCanvas(640, 360);
 }
-
+    
 function draw ()  {
     background(100);
     
@@ -29,7 +29,7 @@ function draw ()  {
     var hairx = 300;
     var hairy = 150;
     var eyeballcolor = "white";
-    var eyecolor = "green";
+    var eyecolor = mouseX;
     var pupilcolor = "black";
     var mouthcolor = "red";
     var mouthx = 265;
@@ -49,6 +49,14 @@ function draw ()  {
     var LbrowWidth = 10;
     var RbrowLength = 30;
     var RbrowWidth = 10;
+    var wingsize = 10;
+    var flybodysize = 10;
+    var r = 100;
+	var g = map(mouseX, 0, width, 0, 255); 
+	var b = map(mouseY, 0, height, 0, 255); 
+
+    
+    
     
     //hair
     fill(hairColor);
@@ -66,28 +74,36 @@ function draw ()  {
     fill(eyeballcolor);
     ellipse(lefteyex + x, eyeY, eyeSize);
     ellipse(righteyex + x, eyeY, eyeSize);
-    fill(eyecolor)
+    fill(r, g, b)
     ellipse(LeyecolorX + x, LeyecolorY, eyecolorSize);
     ellipse(ReyecolorX + x, ReyecolorY, eyecolorSize);
     fill(pupilcolor);
     ellipse(LeyecolorX + x, LeyecolorY, pupilSize);
     ellipse(ReyecolorX + x, ReyecolorY, pupilSize);
     
+    
+    
     //mouth
     fill(mouthcolor)
     rect(mouthx + x, mouthy, mouthlength, mouthwidth, mouthcurve);
+    fill("white")
+    rect(270, 230, 70, 10)
     
     //nose
     fill(skinColor)
     rect(nosex + x, nosey, noselength, nosewidth);
     
+      
+
     //fly
     fill("gray")
-    ellipse(mouseX - 5, mouseY - 5, 10)
-    ellipse(mouseX - 5, mouseY + 5, 10)
-    ellipse(mouseX + 5, mouseY - 5, 10)
-    ellipse(mouseX + 5, mouseY + 5, 10)
+    ellipse(mouseX - 5, mouseY - 5, wingsize)
+    ellipse(mouseX - 5, mouseY + 5, wingsize)
+    ellipse(mouseX + 5, mouseY - 5, wingsize)
+    ellipse(mouseX + 5, mouseY + 5, wingsize)
     fill("black")
-    ellipse(mouseX, mouseY, 10)
-    
+    ellipse(mouseX, mouseY, flybodysize)
+
+      
 } 
+
