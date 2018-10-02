@@ -8,6 +8,7 @@ function setup() {
 
 function draw ()  {
     background(100);
-    text("MEME")
-
+    text("MEME!", 100, 200)
+    textSize(100);
 } 
+

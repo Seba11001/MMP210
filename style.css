@@ -20,7 +20,7 @@ h1 {
     color: green;
 }
 
-a {
+.nav-container a{  
     display: block;
     box-sizing: border-box; 
     width: 130px; 
@@ -29,8 +29,20 @@ a {
     text-align: center; 
     background-color: #58595b; 
     color:#ffffff;
+}
+.nav-container li{
+float: left;
     
 }
+
+.mydiv{
+	box-sizing:border-box;
+	border: solid 15px #cccccc;
+	padding: 0;
+	float:left;
+	margin: 25px 25px 25px 0;
+	}
+
 ul {
     list-style: none;
 }
