@@ -2,13 +2,19 @@
 Adding Variables
 */ 
 
+var img;
+
+function preload() {
+    img = loadImage("cat2.gif");
+}
 function setup() {
+    
     createCanvas(480, 480);
 }
-
+ 
 function draw ()  {
-    background(100);
-    text("MEME!", 100, 200)
-    textSize(100);
+    fill(mouseX)
+    rect(50, 50, 480, 480);
+    image(img, 50, 50, 480, 480);
 } 
 
