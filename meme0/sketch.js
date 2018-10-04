@@ -13,8 +13,12 @@ function setup() {
 }
  
 function draw ()  {
-    fill(mouseX)
+    fill(255, mouseX - 255, 0);
     rect(50, 50, 480, 480);
     image(img, 50, 50, 480, 480);
+    fill("black");
+    text("When you see your human with another cat", 60, 80);
+    textFont("Arial Black")
+    textSize(17);
 } 
 
