@@ -20,7 +20,12 @@ function draw ()  {
     textSize(17);
     textFont("Arial Black")
     text("When you see your human with another cat", 60, 80);
-  
+    if(mouseIsPressed) {
+        textSize(50)
+        text("MEME", 200, 250);
+        
+    }
+        
    
     
 } 
