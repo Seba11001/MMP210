@@ -2,31 +2,35 @@
 Adding Variables
 */ 
 
-var img;
+var cat;
 
 function preload() {
-    img = loadImage("cat2.gif");
+    cat = loadImage("cat2.gif");
 }
 function setup() {
     
-    createCanvas(480, 480);
+    createCanvas(480, 500);
 }
  
 function draw ()  {
+    if(mouseIsPressed) {
+        fill("red")
+        rect(50, 50, 480, 480);
+        fill("white")
+        textSize(40)
+        text("Panic!", 180, 130)
+        textSize(30)
+        text("Oh no", 55, 450)
+    } else {
+        fill("black")
+        rect(50, 50, 480, 480);
+    }
     fill(255, mouseX - 255, 0);
-    rect(50, 50, 480, 480);
-    image(img, 50, 50, 480, 480);
-    fill("black")
+ 
+    image(cat, 50, 50, 480, 480);
+    fill("white")
     textSize(17);
     textFont("Arial Black")
-    text("When you see your human with another cat", 60, 80);
-    if(mouseIsPressed) {
-        textSize(50)
-        text("MEME", 200, 250);
-        
-    }
-        
-   
-    
+    text("When you forget your homework at home", 75, 80);
 } 
 
