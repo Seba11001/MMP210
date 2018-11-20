@@ -1,8 +1,10 @@
 var slide = 0;
 
-var bird, fish;
+var stars, hyperspace;
 
 function preload() {
+    stars = loadImage("images/stars.jpg");
+    hyperspace = loadImage("images/hyperspace.jpg")
 }
 
 function setup() {
@@ -14,22 +16,25 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background("lightblue");
     
     if (slide == 0) {
+        fill("black")
         text("Final Project Idea", width/2, height/2);
     } else if (slide == 1) {
         textSize(30);
+        fill("black");
         text("Potentiometer", 200, 100);
         
  
-        
+        fill("gray")
         ellipse(width/2, 250, 150);
         ellipse(width/2, 250, 50)
     } else if (slide == 2) {
+        fill("black")
         text("Theme: Space", 200, 20);
-        image(bird, 200, 100);
-        image(fish, 400, 100);
+        image(stars, 10, 100, width/2, height/2);
+        image(hyperspace, 400, 200, width/2, height/2);
     }
 }
 
