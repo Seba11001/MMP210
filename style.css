@@ -20,21 +20,30 @@ h1 {
     color: green;
 }
 
-.nav-container a{  
-    display: block;
-    box-sizing: border-box; 
-    width: 130px; 
-    padding: 10px;
-    text-decoration: none;
-    text-align: center; 
-    background-color: #58595b; 
-    color:#ffffff;
-}
-.nav-container li{
-float: left;
-    
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
 .mydiv{
 	box-sizing:border-box;
 	border: solid 15px #cccccc;
