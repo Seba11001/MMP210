@@ -18,8 +18,8 @@ var y8 = 360;
 var s = 5;
 var scolor = "yellow";
 var s2 = 350;
-var speedX = 5;
-var speedY = 5;
+var speedX = 2;
+var speedY = 2;
 
 
 function preload() {
@@ -31,13 +31,13 @@ function setup() {
     noStroke();
 }
 
-function keyPressed() {
-    if (key = "z") {
+function keyTyped() {
+    if (key === "z") {
         speedX += 2;
         speedY += 2;
-    } else if (key = "m") {
-        speedX -= 2;
-        speedY -= 2;
+    } else if (key === "x") {
+        speedX -= 1;
+        speedY -= 1;
     }
 }
 
@@ -45,6 +45,10 @@ function keyPressed() {
 function draw ()  {
     background("black");
    
+   if (speedX < 5) {
+       s = 5;
+   }
+    
     
     fill("white")
     ellipse(x, 350, s)
