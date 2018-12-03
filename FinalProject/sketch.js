@@ -7,6 +7,9 @@ var x6 = 370;
 var x7 = 360;
 var x8 = 360;
 var x9 = 350;
+var x10 = 250;
+var x11 = 450;
+var x12 = 450;
 var y = 360;
 var y2 = 360;
 var y3 = 360;
@@ -15,12 +18,16 @@ var y5 = 360;
 var y6 = 360;
 var y7 = 360;
 var y8 = 360;
+var y9 = 250;
+var y10 = 250;
+var y11 = 450;
 var s = 5;
 var scolor = "yellow";
 var s2 = 350;
 var speedX = 2;
 var speedY = 2;
 
+var l = 100, k = 100, w = 200, h = 100;
 
 function preload() {
 
@@ -41,11 +48,17 @@ function keyTyped() {
     }
 }
 
+
  
 function draw ()  {
     background("black");
+    
+    fill("white")
+   rect(l, k, w, h);
    
-   if (speedX < 5) {
+    
+
+    if (speedX < 5) {
        s = 5;
    }
     
@@ -148,6 +161,54 @@ function draw ()  {
       if (s2 > 30) {
         var scolor = 0;
     }
+    
+    ellipse(x10, y9, s)
+    x10 -= speedX;
+    s += 0.05;
+    y9 -= speedY;
+	if (x10 < 0) {
+		x10 = random(200, 250);
+        y9 = 360;
+        s = 5;
+	}
+      if (s2 > 30) {
+        var scolor = 0;
+    }
+    
+    ellipse(x11, y10, s)
+    x11 += speedX;
+    s += 0.05;
+    y10 -= speedY;
+	if (x11 > 720) {
+		x11 = random(400, 450);
+        y10 = 250;
+        s = 5;
+	}
+      if (s2 > 30) {
+        var scolor = 0;
+    }
+    
+    ellipse(x12, y11, s)
+    x12 += speedX;
+    s += 0.05;
+    y11 += speedY;
+	if (x12 > 720) {
+		x12 = random(400, 450);
+        y11 = 450;
+        s = 5;
+	}
+      if (s2 > 30) {
+        var scolor = 0;
+          
+    }
 } 
 
-
+function mousePressed() {
+	if ( mouseX > l && mouseX < l + w && mouseY > k && mouseY < k + h ) {
+		r = random(0, 255);
+		g = random(0, 255);
+		b = random(0, 255);
+		fill(r, g, b);
+		ellipse(random(width), random(height), random(20, 100));
+	}
+}
