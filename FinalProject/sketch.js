@@ -241,7 +241,7 @@ function draw ()  {
     fill("red")
         ellipse(360, 360, marsSize);
      if (key === "m") {
-        marsSize += 3;
+        marsSize += speedX;
          moonSize = 0;
     } if (marsSize > 350) {
         marsSize = 350;
@@ -253,9 +253,7 @@ function draw ()  {
     fill("gray")
         ellipse(360, 360, moonSize);
      if (key === "l") {
-         speedX = 5;
-         speedY = 5;
-        moonSize += 3;
+        moonSize += speedX;
          marsSize = 0;
     } if (moonSize > 350) {
         moonSize = 350;
