@@ -25,12 +25,17 @@ var y11 = 450;
 var y12 = 360;
 var s = 5;
 var marsSize = 0;
+var marsX = 350;
+var marsY = 350;
 var moonSize = 0;
+var moonX = 350;
+var moonY = 350;
 var bcolor = "black";
 var scolor = "yellow";
 var s2 = 350;
 var speedX = 2;
 var speedY = 2;
+
 
 var l = 100, k = 100, w = 200, h = 100;
 
@@ -238,8 +243,8 @@ function draw ()  {
     }
     
     //Mars
-    fill("red")
-        ellipse(360, 360, marsSize);
+    fill("#b22e20")
+        ellipse(marsX, marsY, marsSize);
      if (key === "m") {
         marsSize += speedX;
          moonSize = 0;
@@ -251,7 +256,7 @@ function draw ()  {
     
     //Moon
     fill("gray")
-        ellipse(360, 360, moonSize);
+        ellipse(moonX, moonY, moonSize);
      if (key === "l") {
         moonSize += speedX;
          marsSize = 0;
@@ -259,6 +264,11 @@ function draw ()  {
         moonSize = 350;
         speedX = 0;
         speedY = 0;
+    }
+    
+    if (speedX > 30) {
+        speedX = 30;
+        speedY = 30;
     }
 }
 
