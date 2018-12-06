@@ -1,3 +1,7 @@
+var serial;
+var portName = "COM3";
+var sensorValue;
+
 var x = 320;
 var x2 = 330;
 var x3 = 340;
@@ -46,7 +50,41 @@ function setup() {
     fill(bcolor);
     createCanvas(720, 720);
     noStroke();
+    serial = new p5.SerialPort();
+	serial.on('connected', serverConnected);
+	serial.on('open', portOpen);
+	serial.on('data', serialEvent);
+	serial.on('error', serialError);
+	serial.on('close', portClose);
+	
+	serial.open(portName);
 }
+
+function serverConnected() {
+	console.log('connected to server.');
+}
+
+function portOpen() {
+	console.log('the serial port opened.')
+}
+
+function portClose() {
+	console.log('The serial port closed.');
+}
+    
+function serialError() {
+    console.log("error");
+}
+
+function serialEvent() {
+	var currentString = serial.readLine();
+	trim(currentString)
+	if (!currentString) {
+		return; 
+	}
+	sensorValue = currentString; 
+}
+
 
 //KeyboardControls
 function keyTyped() {
@@ -67,6 +105,10 @@ function keyTyped() {
 function draw ()  {
     background(bcolor);
 
+    //speedX = sensorValue/200;
+    //speedY = sensorValue/200;
+    
+    
     if (speedX < 5) {
        s = 5;
    }
@@ -80,7 +122,7 @@ function draw ()  {
 		x = random(320, 400);
         s = 5;
 	}
-    if (s > 30) {
+    if (s2 > 30) {
         var scolor = 0;
     }
     
