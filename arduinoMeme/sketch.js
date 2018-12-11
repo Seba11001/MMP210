@@ -1,5 +1,5 @@
 var serial;
-var portName = "COM11";
+var portName = "COM12";
 var sensorValue;
 
 function setup() {

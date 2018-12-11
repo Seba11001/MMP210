@@ -1,5 +1,5 @@
 var serial;
-var portName = "COM3";
+var portName = "COM13";
 var sensorValue;
 
 var x = 320;
@@ -44,8 +44,9 @@ var speedY = 2;
 var l = 100, k = 100, w = 200, h = 100;
 
 function preload() {
-
+    ship = loadImage("ship.gif")
 }
+
 function setup() {
     fill(bcolor);
     createCanvas(720, 720);
@@ -100,14 +101,41 @@ function keyTyped() {
         moonSize = 0
     }  
 }
-
- 
+    
+    
 function draw ()  {
     background(bcolor);
 
-    //speedX = sensorValue/200;
-    //speedY = sensorValue/200;
     
+   //Arduino Potentiometer Controls
+    if (sensorValue > 300) {
+       speedX = 5;
+        speedY = 5;
+   } if (sensorValue > 400) {
+       speedX = 7;
+        speedY = 7;
+   } if (sensorValue > 500) {
+       speedX = 9;
+        speedY = 9;
+   } if (sensorValue > 600) {
+       speedX = 10;
+        speedY = 10;
+   } if (sensorValue > 700) {
+       speedX = 15;
+        speedY = 15;
+   } if (sensorValue > 800) {
+       speedX = 20;
+        speedY = 20;
+   } if (sensorValue > 900) {
+       speedX = 30;
+       speedY = 30;
+   } if (sensorValue < 100) {
+       speedX = 2;
+        speedY = 2;
+   } if (sensorValue < 10) {
+       speedX = 0;
+        speedY = 0;
+   }
     
     if (speedX < 5) {
        s = 5;
@@ -115,9 +143,9 @@ function draw ()  {
    
     //star1
     fill("white")
+    
     ellipse(x, 350, s)
-    x += speedX;
-    s += 0.05;
+    x += speedX ;
 	if (x > 720) {
 		x = random(320, 400);
         s = 5;
@@ -129,7 +157,6 @@ function draw ()  {
     //star2
     ellipse(x2, 350, s)
     x2 -= speedX;
-    s += 0.05;
 	if (x2 < 0) {
 		x2 = random(320, 400);
         s2 = 5;
@@ -141,7 +168,6 @@ function draw ()  {
     //star3
     ellipse(x3, y, s)
     x3 -= speedX;
-    s += 0.05;
     y += speedY;
 	if (x3 < 0) {
 		x3 = random(320, 400);
@@ -155,7 +181,6 @@ function draw ()  {
     //star4
     ellipse(x4, y2, s)
     x4 += speedX;
-    s += 0.05;
     y2 -= speedY;
 	if (x4 > 720) {
 		x4 = random(320, 400);
@@ -169,7 +194,6 @@ function draw ()  {
     //star5
     ellipse(x5, y3, s)
     x5 += speedX;
-    s += 0.05;
     y3 += speedY;
 	if (x5 > 720) {
 		x5 = random(320, 400);
@@ -183,7 +207,6 @@ function draw ()  {
     //star6
     ellipse(x6, y5, s)
     x6 -= speedX;
-    s += 0.05;
     y5 -= speedY;
 	if (x6 < 0) {
 		x6 = random(320, 400);
@@ -196,7 +219,6 @@ function draw ()  {
     
     //star 7
     ellipse(x7, y6, s)
-    s += 0.05;
     y6 -= speedY;
 	if (y6 < 0) {
 		x7 = random(320, 400);
@@ -209,7 +231,6 @@ function draw ()  {
     
     //star 8
     ellipse(x8, y7, s)
-    s += 0.05;
     y7 += speedY;
 	if (y7 > 720) {
 		x8 = random(320, 400);
@@ -223,7 +244,6 @@ function draw ()  {
     //star 9
     ellipse(x10, y9, s)
     x10 -= speedX;
-    s += 0.05;
     y9 -= speedY;
 	if (x10 < 0) {
 		x10 = random(200, 250);
@@ -237,7 +257,6 @@ function draw ()  {
     //star 10
     ellipse(x11, y10, s)
     x11 += speedX;
-    s += 0.05;
     y10 -= speedY;
 	if (x11 > 720) {
 		x11 = random(400, 450);
@@ -251,7 +270,6 @@ function draw ()  {
     //star 11
     ellipse(x12, y11, s)
     x12 += speedX;
-    s += 0.05;
     y11 += speedY;
 	if (x12 > 720) {
 		x12 = random(400, 450);
@@ -266,7 +284,6 @@ function draw ()  {
     //star 12
     ellipse(x13, y12, s)
     x13 -= speedX;
-    s += 0.05;
     y12 += speedY;
 	if (x13 < 0) {
 		x13 = random(350, 400);
@@ -292,8 +309,6 @@ function draw ()  {
          moonSize = 0;
     } if (marsSize > 350) {
         marsSize = 350;
-        speedX = 0;
-        speedY = 0;
     }
     
     //Moon
@@ -302,16 +317,31 @@ function draw ()  {
      if (key === "l") {
         moonSize += speedX;
          marsSize = 0;
+         
     } if (moonSize > 350) {
         moonSize = 350;
-        speedX = 0;
-        speedY = 0;
     }
     
     if (speedX > 30) {
         speedX = 30;
         speedY = 30;
     }
+    
+    image(ship, 0, 175, 720, 720);
+    fill("white")
+    textSize(20);
+    textFont("Arial Black")
+    text("Location:", 270, 700);
+    if (moonSize > 300) {
+        text("Moon", 375, 700);
+    } else if (marsSize > 300) {
+        text("Mars", 375, 700);
+    } else {
+        text("Space", 375, 700);
+    }
+    text("Speed:", 270, 670);
+    text(speedX, 350, 670)
+    
 }
 
 
